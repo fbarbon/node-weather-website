@@ -9,6 +9,9 @@ const path = require('path');
 
 const app = express();
 
+// LICAO 67 - Heroku
+const port = process.env.PORT || 3000;
+
 // Usar o comando "nodemon src/app.js -e js,hbs" para que o servidor seja reiniciado quando Javascript E Handlebars mudarem
 const hbs = require('hbs');
 
@@ -160,6 +163,11 @@ app.get('*', (req, res) => {
 	});
 });
 
-app.listen(3000, () => {
-	console.log('Server is up on port 3000.');
+// app.listen(3000, () => {
+// 	console.log('Server is up on port 3000.');
+// });
+
+// LICAO 67 - Heroku
+app.listen(port, () => {
+	console.log('Server is up on port ' + port);
 });
